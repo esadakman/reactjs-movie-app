@@ -6,24 +6,28 @@ import Login from "../pages//Login";
 import Main from "../pages/Main";
 import MovieDetail from "../pages/MovieDetail";
 import NotFound from "../pages//NotFound";
-import Register from "../pages//Register";
+import SignUp from "../pages/SignUp";
+import { AuthProvider } from "../context/AuthContext";
 
 const Router = () => {
   return (
-    <div>
+    <>
       <GlobalStyles />
+
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/details" element={<MovieDetail />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<SignUp />} />
+            <Route path="/details" element={<MovieDetail />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </AuthProvider>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 
