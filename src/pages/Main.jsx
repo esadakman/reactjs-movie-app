@@ -1,34 +1,34 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { ButtonStyleCard } from "../components/globalStyles/Flex";
-// import toast from "react-hot-toast";
-import { auth, logout } from "../config/firebase";
-// import { useAuthState } from "react-firebase-hook/auth";
+import MovieCard from "../components/MovieCard";
+import CardArea from "./styles/Main.styled";
 
 const Main = () => {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+  const [movies, setMovies] = useState([]);
+
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+  // const seachUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
+
+  const getData = async () => {
+    const { data } = await axios.get(url);
+    console.log(data);
+    setMovies(data.results);
+  };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      const user = {
-        uid: authUser?.uid,
-        email: authUser?.email,
-      };
-
-      if (authUser) {
-        console.log(authUser);
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
-    return unsubscribe;
+    getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <div>{user ? <p>içerde</p> : <p>not</p>}</div>
-
-      <ButtonStyleCard onClick={logout}>Sign Out</ButtonStyleCard>
+      <CardArea>
+        {movies?.map((item) => (
+          <MovieCard {...item} key={item.id} />
+        ))}
+      </CardArea>
     </>
   );
 };
