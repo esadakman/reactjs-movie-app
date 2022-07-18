@@ -41,6 +41,7 @@ export const CardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  cursor: pointer;
 `;
 
 export const Card = styled.div`
@@ -49,7 +50,7 @@ export const Card = styled.div`
   background: #fff;
   border: 2px solid #fff;
   box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+
   transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
   overflow: hidden;
   position: relative;
@@ -93,15 +94,13 @@ export const Desc = styled.div`
     color: ${({ theme }) => theme.colors.navBgColor};
     letter-spacing: 1px;
     margin: 10px 0;
-
     font-weight: 400;
   }
   & > p {
     overflow: auto;
-    /* text-indent: px; */
     padding-right: 8px;
     line-height: 24px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: justify;
     height: 85%;
   }
@@ -135,20 +134,49 @@ export const TitleCard = styled.div`
   }
 `;
 
-export const ButtonCard = styled.button`
-  //   width: fit-content;
-  //   height: 40px;
-  //   cursor: pointer;
-  //   border-style: none;
-  //   background-color: #ff3838;
-  //   color: #fff;
-  //   font-size: 15px;
-  //   outline: none;
-  //   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
-  //   transition: all 0.5s ease-in-out;
-  //   :hover {
-  //     transform: scale(0.95) translateX(-5px);
-  //     transition: all 0.5s ease-in-out;
-  //   }
-  //
+export const YoutubeDiv = styled.div`
+  width: 63vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s linear;
+  @media (max-width: ${({ theme }) => theme.size.md}) {
+    width: 80vw;
+    height: calc(100vw * 0.35);
+  }
+  & > div {
+    width: 100%;
+    height: calc(90vw * 0.4);
+    @media (max-width: ${({ theme }) => theme.size.md}) {
+      height: calc(100vw * 0.45);
+    }
+    & > iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;
+
+export const FormButton = styled.button`
+  background-color: ${({ theme }) => theme.colors.btnColor};
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.3s linear;
+  border: none;
+  /* text-transform: uppercase; */
+  font-size: 1.1rem;
+
+  :hover {
+    opacity: 1;
+    box-shadow: 0px 2px 3px #ddd;
+    transform: scale(1.02);
+    text-shadow: 0 0 1px white;
+  }
+`;
+// Text-shadow: 0 0 2px white;

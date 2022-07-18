@@ -8,7 +8,7 @@ export const Nav = styled(Flex)`
   position: sticky;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 6;
   /* @media (max-width: ${({ theme }) => theme.size.lg}) {
     position: relative;
   } */
@@ -86,6 +86,7 @@ export const MenuLink = styled(Link)`
 `;
 
 export const FooterStyle = styled.footer`
+  z-index: 5;
   display: flex;
   text-decoration: none;
   justify-content: space-between;

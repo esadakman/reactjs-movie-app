@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-// import Box from "@material-ui/core/Box";
-// import { signUp } from "../config/firebase";
+import GoogleButton from "react-google-button";
+import Flex, { FormButton } from "../components/globalStyles/Flex";
+import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { GoogleRegister, register } from "../auth/firebase";
+import toast from "react-hot-toast";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,21 +46,26 @@ const useStyles = makeStyles((theme) => ({
 
 const Register = () => {
   const classes = useStyles();
+  // const [user, setUser] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  //
 
-  const userInfo = {
-    username: `${firstName}  ${lastName}`,
-    email: `${email}`,
-    password: `${password}`,
-  };
-  const handleSubmit = (e) => {
+  // const { register } = UserAuth();
+  const navigate = useNavigate();
+  //
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log(userInfo);
+    const displayName = `${firstName} ${lastName}`;
+    if (email && password && firstName && lastName) {
+      await register(email, password, displayName, navigate);
+    } else {
+      toast.error("Please fill out all fiels.");
+    }
+    // const user = register(email, password, displayName, navigate);
   };
-
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -73,7 +78,7 @@ const Register = () => {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form className={classes.form} noValidate onSubmit={handleSubmit}>
+          <form className={classes.form} noValidate onSubmit={handleSignUp}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -129,27 +134,29 @@ const Register = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid> */}
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
+            <FormButton
               variant="contained"
               color="primary"
               className={classes.submit}
+              type="submit"
+              style={{ width: "100%", borderRadius: "1px" }}
+              // className={classes.submit}
             >
               Sign Up
-            </Button>
+            </FormButton>
+            <Flex style={{ marginBottom: "1rem" }}>
+              <GoogleButton
+                // style={{ margi: "0" }}
+                label="Sign up with Google"
+                onClick={() => {
+                  GoogleRegister(navigate);
+                }}
+              />
+            </Flex>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/" variant="body2">
+                <Link to="/Login" component={RouterLink}>
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -182,3 +189,26 @@ export default Register;
 //       console.log(e);
 //     });
 // }, []);
+
+// const [firstName, setFirstName] = useState("");
+// const [lastName, setLastName] = useState("");
+// const [email, setEmail] = useState("");
+// const [password, setPassword] = useState("");
+
+// const userInfo = {
+//   username: `${firstName}  ${lastName}`,
+//   email: `${email}`,
+//   password: `${password}`,
+// };
+// const handleSubmit = useCallback(e) => {
+//   e.preventDefault();
+//   // console.log(userInfo);
+// };
+// const handleSignUp = (e) => {
+// e.preventDefault();
+// const { firstName, lastName, email, password } = event.target.elements;
+// console.log(firstName);
+// };
+
+// import Box from "@material-ui/core/Box";
+// import { signUp } from "../config/firebase";

@@ -10,10 +10,13 @@ import {
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useAuthContext } from "../context/AuthContext";
+import { logout } from "../auth/firebase";
 // import MovieIcon from "@mui/icons-material/Movie";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { userCheck } = useAuthContext();
+  // onClick={() => setMovies("")}
   return (
     <Nav justify="space-between" wrap="wrap">
       <Logo to="/">
@@ -29,8 +32,16 @@ const Navbar = () => {
 
       <Menu isOpen={isOpen} onClick={() => setIsOpen(false)}>
         {/* <MenuLink to="/">Home</MenuLink> */}
-        <MenuLink to="register">Register</MenuLink>
-        <MenuLink to="login">Logout</MenuLink>
+        {userCheck ? (
+          <MenuLink to="/" onClick={logout}>
+            Log Out
+          </MenuLink>
+        ) : (
+          <>
+            <MenuLink to="register">Register</MenuLink>
+            <MenuLink to="login">Log In</MenuLink>
+          </>
+        )}
       </Menu>
     </Nav>
   );

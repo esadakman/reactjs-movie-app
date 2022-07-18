@@ -1,3 +1,6 @@
+// import { createTheme } from "@mui/material/styles";
+// import { indigo, cyan } from "@mui/material/colors";
+
 const theme = {
   colors: {
     navBgColor: "#050f24",
@@ -16,14 +19,25 @@ const theme = {
     success: "#5cb85c",
     warning: "#f0ad4e",
     danger: "#d9534f",
+    btnColor: "#112756",
   },
   size: {
-    xs: "560px",
+    xs: "500px",
     sm: "640px",
     md: "768px",
-    lg: "992px",
+    mdl: "855px",
+    lg: "1040px",
     xlg: "1200px",
     xxlg: "1400px",
   },
 };
+
+// export const muiTheme = createTheme({
+//   palette: {
+//     secondary: {
+//       main: indigo[900],
+//     },
+//   },
+// });
+
 export default theme;

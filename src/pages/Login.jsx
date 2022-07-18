@@ -14,9 +14,10 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import GoogleButton from "react-google-button";
-import Flex from "../components/globalStyles/Flex";
-import { login } from "../config/firebase";
-import { useNavigate } from "react-router-dom";
+import Flex, { FormButton } from "../components/globalStyles/Flex";
+import { GoogleRegister, login } from "../auth/firebase";
+import { useNavigate, Link as RouterLink } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,18 +51,18 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const classes = useStyles();
   // const [user, setUser] = useState(null);
-
-  // const login = () => {
-  //   auth.signInWithPopup(provider).catch((error) => alert(error.message));
-  // };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const user = await login(email, password, navigate);
-    console.log(user);
+    // const user = await login(email, password, navigate);
+    if (email && password) {
+      await login(email, password, navigate);
+    } else {
+      toast.error("Please fill out all fields.");
+    }
   };
 
   return (
@@ -103,35 +104,34 @@ const Login = () => {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
-            <Button
+            /> */}
+            <FormButton
               type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
               className={classes.submit}
+              style={{ width: "100%", borderRadius: "1px" }}
+              // className={classes.submit}
             >
               Sign In
-            </Button>
+            </FormButton>
             <Flex style={{ marginBottom: "1rem" }}>
               <GoogleButton
                 // label=""
                 onClick={() => {
-                  console.log("Google button clicked");
+                  GoogleRegister(navigate);
                 }}
               />
             </Flex>
-            <Grid container>
-              <Grid item xs>
+            <Grid container justifyContent="flex-end">
+              {/* <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
-              </Grid>
+              </Grid> */}
               <Grid item>
-                <Link href="/register" variant="body2">
+                <Link to="/register" variant="body2" component={RouterLink}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
