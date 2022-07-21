@@ -15,9 +15,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import GoogleButton from "react-google-button";
 import Flex, { FormButton } from "../components/globalStyles/Flex";
-import { GoogleRegister, login } from "../auth/firebase";
+import { forgotPassword, GoogleRegister, login } from "../auth/firebase";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
-import toast from "react-hot-toast";
+import { toastWarn } from "../helpers/ToastNotify";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +61,7 @@ const Login = () => {
     if (email && password) {
       await login(email, password, navigate);
     } else {
-      toast.error("Please fill out all fields.");
+      toastWarn("Please fill out all fields.");
     }
   };
 
@@ -125,11 +125,15 @@ const Login = () => {
               />
             </Flex>
             <Grid container justifyContent="flex-end">
-              {/* <Grid item xs>
-                <Link href="#" variant="body2">
+              <Grid item xs>
+                <Link
+                  href="#"
+                  variant="body2"
+                  onClick={() => forgotPassword(email)}
+                >
                   Forgot password?
                 </Link>
-              </Grid> */}
+              </Grid>
               <Grid item>
                 <Link to="/register" variant="body2" component={RouterLink}>
                   {"Don't have an account? Sign Up"}
