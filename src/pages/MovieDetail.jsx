@@ -68,7 +68,6 @@ const MovieDetail = () => {
     }
   };
   return (
-    // <div>
     <MovieContainer>
       {loading ? (
         <Flex style={{ flexDirection: "column", gap: "1rem" }}>
@@ -171,8 +170,6 @@ const MovieDetail = () => {
         </>
       )}
     </MovieContainer>
-
-    // </div>
   );
 };
 

@@ -115,39 +115,3 @@ const Main = () => {
 };
 
 export default Main;
-
-// const data = await axios.get(apiType).then((res) => {
-//   console.log(res);
-//   setMovies(res.data.results);
-// });
-
-// {
-//   movies.length > 0 ? (
-//     <CardArea>
-//       {movies?.map((item) => (
-//         <MovieCard {...item} key={item.id} />
-//       ))}
-//     </CardArea>
-//   ) : (
-//     <SectionStyled style={{ height: "75vh" }}>
-//       <DivStyled>
-//         <img src={vincent} alt="" />
-//         <h1 style={{ fontSize: "5rem" }}>Ooppss...</h1>
-//         <p>Sorry, We couldn't find what you're looking for.</p>
-//       </DivStyled>
-//     </SectionStyled>
-//   );
-// }
-// const getData = async (apiType) => {
-//   try {
-//     const { data } = await axios.get(apiType);
-//     console.log(data.results);
-//     if (data.results.length > 0) {
-//       setMovies(data.results);
-//     } else {
-//       toast.error("Please search somethig else");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };

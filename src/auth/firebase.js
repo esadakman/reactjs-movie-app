@@ -9,8 +9,6 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
 } from "firebase/auth";
-
-import toast from "react-hot-toast";
 import { toastError, toastSuccess, toastWarn } from "../helpers/ToastNotify";
 
 const firebaseConfig = {
