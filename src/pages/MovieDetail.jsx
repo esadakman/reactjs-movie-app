@@ -94,7 +94,7 @@ const MovieDetail = () => {
                   }`,
                 }}
               >
-                {movieDatas?.vote_average}
+                {movieDatas?.vote_average.toFixed(1)}
               </span>
             </RateSpan>
             <InfoSection>
