@@ -20,6 +20,7 @@ const Router = () => {
   function PrivateRouter() {
     return currentUser ? <Navigate to="/login" replace /> : <Outlet />;
   }
+
   return (
     <>
       <GlobalStyles />
