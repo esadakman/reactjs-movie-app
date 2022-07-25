@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import GoogleButton from "react-google-button";
-import Flex, { FormButton } from "../components/globalStyles/Flex";
+import Flex from "../components/globalStyles/Flex";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
 import { GoogleRegister, register } from "../auth/firebase";
-import { Button } from "@mui/material";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  Grid,
+  Link,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { toastWarn } from "../helpers/ToastNotify";
-
+import { useState } from "react";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "85vh",
@@ -170,46 +171,3 @@ const Register = () => {
 };
 
 export default Register;
-
-// const MadeWithLove = () => (
-//   <Typography variant="body2" color="textSecondary" align="center">
-//     {"Built with love by the "}
-//     <Link color="inherit" href="https://material-ui.com/">
-//       Material-UI
-//     </Link>
-//     {" team."}
-//   </Typography>
-// );
-
-// useEffect(() => {
-//   signUp(firstName, lastName, email, password)
-//     .then(() => {
-//       console.log("signed up");
-//     })
-//     .catch((e) => {
-//       console.log(e);
-//     });
-// }, []);
-
-// const [firstName, setFirstName] = useState("");
-// const [lastName, setLastName] = useState("");
-// const [email, setEmail] = useState("");
-// const [password, setPassword] = useState("");
-
-// const userInfo = {
-//   username: `${firstName}  ${lastName}`,
-//   email: `${email}`,
-//   password: `${password}`,
-// };
-// const handleSubmit = useCallback(e) => {
-//   e.preventDefault();
-//   // console.log(userInfo);
-// };
-// const handleSignUp = (e) => {
-// e.preventDefault();
-// const { firstName, lastName, email, password } = event.target.elements;
-// console.log(firstName);
-// };
-
-// import Box from "@material-ui/core/Box";
-// import { signUp } from "../config/firebase";

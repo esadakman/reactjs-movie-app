@@ -1,24 +1,21 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import GoogleButton from "react-google-button";
 import Flex, { FormButton } from "../components/globalStyles/Flex";
 import { forgotPassword, GoogleRegister, login } from "../auth/firebase";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
 import { toastWarn } from "../helpers/ToastNotify";
-
+import {
+  Avatar,
+  Box,
+  CssBaseline,
+  Grid,
+  Link,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useState } from "react";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "85vh",
@@ -149,13 +146,3 @@ const Login = () => {
 };
 
 export default Login;
-
-// const MadeWithLove = () => (
-//   <Typography variant="body2" color="textSecondary" align="center">
-//     {"Built with love by the "}
-//     <Link color="inherit" href="https://material-ui.com/">
-//       Material-UI
-//     </Link>
-//     {" team."}
-//   </Typography>
-// );

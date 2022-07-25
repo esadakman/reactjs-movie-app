@@ -68,7 +68,6 @@ const MovieDetail = () => {
     }
   };
   return (
-    // <div>
     <MovieContainer>
       {loading ? (
         <Flex style={{ flexDirection: "column", gap: "1rem" }}>
@@ -95,7 +94,7 @@ const MovieDetail = () => {
                   }`,
                 }}
               >
-                {movieDatas?.vote_average}
+                {movieDatas?.vote_average.toFixed(1)}
               </span>
             </RateSpan>
             <InfoSection>
@@ -171,8 +170,6 @@ const MovieDetail = () => {
         </>
       )}
     </MovieContainer>
-
-    // </div>
   );
 };
 
