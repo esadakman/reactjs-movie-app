@@ -1,4 +1,3 @@
-import { makeStyles } from "@material-ui/core/styles";
 import GoogleButton from "react-google-button";
 import Flex, { FormButton } from "../components/globalStyles/Flex";
 import { forgotPassword, GoogleRegister, login } from "../auth/firebase";
@@ -16,7 +15,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "85vh",
