@@ -15,39 +15,9 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { makeStyles } from "@mui/styles";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "85vh",
-  },
-  image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-  paper: {
-    margin: theme.spacing(4, 4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%",
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(2, 0, 2),
-  },
-}));
+// const theme = createTheme();
 
-const Login = () => {
-  const classes = useStyles();
-  // const [user, setUser] = useState(null);
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -61,23 +31,52 @@ const Login = () => {
       toastWarn("Please fill out all fields.");
     }
   };
-
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid
+      container
+      component="main"
+      sx={{ height: { xs: "91vh", sm: "90vh" } }}
+    >
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          backgroundImage: "url(https://source.unsplash.com/random)",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: (t) =>
+            t.palette.mode === "light"
+              ? t.palette.grey[50]
+              : t.palette.grey[900],
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
+        <Box
+          sx={{
+            my: 8,
+            mx: 4,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate onSubmit={handleLogin}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleLogin}
+            sx={{ mt: 1 }}
+          >
             <TextField
-              size="small"
-              variant="outlined"
               margin="normal"
               required
               fullWidth
@@ -85,12 +84,11 @@ const Login = () => {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
+              // size="small"
               onChange={(e) => setEmail(e.target.value)}
+              autoFocus
             />
             <TextField
-              size="small"
-              variant="outlined"
               margin="normal"
               required
               fullWidth
@@ -98,24 +96,22 @@ const Login = () => {
               label="Password"
               type="password"
               id="password"
+              // size="small"
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
             <FormButton
               type="submit"
-              className={classes.submit}
-              style={{ width: "100%", borderRadius: "1px" }}
-              // className={classes.submit}
+              style={{
+                width: "100%",
+                borderRadius: "1px",
+                margin: ".8rem 0 ",
+              }}
             >
               Sign In
             </FormButton>
             <Flex style={{ marginBottom: "1rem" }}>
               <GoogleButton
-                // label=""
                 onClick={() => {
                   GoogleRegister(navigate);
                 }}
@@ -137,12 +133,9 @@ const Login = () => {
                 </Link>
               </Grid>
             </Grid>
-            <Box mt={5}></Box>
-          </form>
-        </div>
+          </Box>
+        </Box>
       </Grid>
     </Grid>
   );
-};
-
-export default Login;
+}
