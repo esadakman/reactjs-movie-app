@@ -95,3 +95,8 @@ $ npm start / yarn start
 ```
 
 ### Preview of the Project
+
+
+https://user-images.githubusercontent.com/98649983/181635676-72a630f3-19dd-49cc-8d3d-072ad32d2caf.mp4
+
+
