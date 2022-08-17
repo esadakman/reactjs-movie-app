@@ -96,4 +96,4 @@ $ npm start / yarn start
 
 ### Preview of the Project
 
-<img  src="./src/assets/movie.gif" alt="python"  />
+<img  src="./src/assets/movie.gif" alt="gif"  />
