@@ -89,9 +89,11 @@ To run this project;
 
 ```
 $ git clone https://github.com/esadakman/movie-app-firebase.git
-$ cd ../movie-app-firebase
+$ cd ./movie-app-firebase
 $ npm install / yarn
 $ npm start / yarn start
 ```
 
 ### Preview of the Project
+
+<img  src="./src/assets/movie.gif" alt="python"  />
