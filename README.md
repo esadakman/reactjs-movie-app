@@ -88,7 +88,7 @@ To run this project;
 - After these you can run the project as usual =>
 
 ```
-$ git clone https://github.com/esadakman/movie-app-firebase.git
+$ git clone https://github.com/esadakman/reactjs-movie-app.git
 $ cd ./movie-app-firebase
 $ npm install / yarn
 $ npm start / yarn start
