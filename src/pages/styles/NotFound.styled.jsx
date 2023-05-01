@@ -20,8 +20,7 @@ export const DivStyled = styled.div`
   justify-content: center;
   text-align: center;
   @media (max-width: ${({ theme }) => theme.size.sm}) {
-    width: 100vw;
-    align-items: center;
+    width: 100vw; 
     justify-content: flex-start;
   }
   & > img {
