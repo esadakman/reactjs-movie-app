@@ -24,13 +24,21 @@ export const Logo = styled(Link)`
   align-items: center;
   gap: 1rem;
   p {
+    transition: all 0.3s ease-in-out;
     font-weight: 400;
     color: ${({ theme }) => theme.colors.turqo};
+  }
+  & > p:hover {
+    scale: 1.05;
   }
 `;
 
 export const IMG = styled.img`
   width: 40px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    scale: 1.1;
+  }
 `;
 
 export const Hamburger = styled.div`
@@ -65,6 +73,7 @@ export const Menu = styled(Flex)`
     color: ${({ theme }) => theme.colors.turqo};
     margin-right: 1rem;
     font-size: 1.2rem;
+    user-select: none;
   }
 `;
 
@@ -99,7 +108,7 @@ export const FooterStyle = styled.footer`
   color: black;
   font-family: "Roboto", sans-serif;
   align-items: center;
-  height: 8vh;
+  height: 6vh;
   padding: 0 1.5rem;
   position: fixed;
   width: 100%;
@@ -120,7 +129,7 @@ export const Logos = styled.div`
   }
 `;
 export const TextStyle = styled.div`
-  font-size: 0.7rem;
+  font-size: .9rem;
   color: white;
   & > p {
     color: white;

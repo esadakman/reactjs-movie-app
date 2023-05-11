@@ -8,7 +8,11 @@ const Footer = () => {
   return (
     <FooterStyle>
       <TextStyle>
-        <p>&#169; 2022. All rights reserved.</p>
+        <p>
+          {" "}
+          Copyright &#169;
+          {new Date().getFullYear()} Esad Akman
+        </p>
       </TextStyle>
       <Logos>
         <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
