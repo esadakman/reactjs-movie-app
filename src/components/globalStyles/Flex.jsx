@@ -119,9 +119,14 @@ export const TitleCard = styled.div`
 
   & > p {
     color: white;
-    font-family: "Roboto", sans-serif;
     width: 85%;
-    overflow: auto;
+    overflow: hidden; /* Hide the text that exceeds the container */
+    display: -webkit-box; /* For webkit-based browsers */
+    -webkit-line-clamp: 2; /* Limit the number of lines to 2 */
+    -webkit-box-orient: vertical; /* Arrange the text vertically */
+    display: -moz-box; /* For Firefox */
+    -moz-box-orient: vertical; /* Arrange the text vertically */
+    line-clamp: 2; /* Limit the number of lines to 2 */
   }
 
   & > span {
@@ -133,6 +138,7 @@ export const TitleCard = styled.div`
     background-color: ${({ theme }) => theme.colors.success};
   }
 `;
+
 
 export const YoutubeDiv = styled.div`
   width: 63vw;

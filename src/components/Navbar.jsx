@@ -12,18 +12,15 @@ import logo from "../assets/logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useAuthContext } from "../context/AuthContext";
 import { logout } from "../auth/firebase";
-// import MovieIcon from "@mui/icons-material/Movie";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { userCheck } = useAuthContext();
-  // onClick={() => setMovies("")}
+  
   return (
     <Nav justify="space-between" wrap="wrap">
-      <Logo to="/main">
+      <Logo to="/">
         <IMG src={logo} alt="logo" />
-        <p>
-          <i>Movie App</i>
-        </p>
+        <p>tMDB</p>
       </Logo>
 
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
@@ -34,7 +31,7 @@ const Navbar = () => {
         {/* <MenuLink to="/">Home</MenuLink> */}
         {userCheck ? (
           <>
-            <h5 className="mb-0 text-capitalize">{userCheck.displayName}</h5>
+            <h5>{userCheck.displayName}</h5>
             <MenuLink to="/" onClick={logout}>
               Log Out
             </MenuLink>
