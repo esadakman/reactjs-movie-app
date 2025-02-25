@@ -49,7 +49,7 @@ const Register = () => {
         sm={4}
         md={7}
         sx={{
-          backgroundImage: "url(https://source.unsplash.com/user/erondu/1600x900)",
+          backgroundImage: "url(https://picsum.photos/1600/1200)",
           backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
             t.palette.mode === "light"
