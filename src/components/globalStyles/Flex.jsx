@@ -80,7 +80,6 @@ export const CardWrapper = styled.div`
     transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
     transform: scale(0.97);
-
     & > img {
       transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
       transform: scale(1.6) rotate(20deg);
