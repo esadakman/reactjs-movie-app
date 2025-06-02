@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     margin:0;
     font-family: 'Roboto', sans-serif; 
     ::-webkit-scrollbar {
-      width: 0.8rem;
+      width: 0.5rem;
     }
     ::-webkit-scrollbar-track {
       background: ${({ theme }) => theme.colors.navBgColor};

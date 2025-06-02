@@ -33,17 +33,6 @@ export const ButtonStyleCard = styled.button`
   }
 `;
 
-export const CardWrapper = styled.div`
-  margin: 1rem;
-  width: 20rem;
-  max-width: 650px;
-  height: 34rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  cursor: pointer;
-`;
-
 export const Card = styled.div`
   flex: 1;
   flex-basis: 300px;
@@ -60,9 +49,38 @@ export const Card = styled.div`
     transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
   }
   :hover {
+    // transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    // box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+    // transform: scale(0.97);
+    & > img {
+      transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+      transform: scale(1.6) rotate(20deg);
+      filter: blur(3px);
+    }
+
+    & > div {
+      left: 0px;
+      transition: all 0.7s ease-in-out;
+      clip-path: circle(75%);
+    }
+  }
+`;
+
+export const CardWrapper = styled.div`
+  margin: 1rem;
+  width: 20rem;
+  max-width: 650px;
+  height: 34rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:hover ${Card} {
     transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
     transform: scale(0.97);
+
     & > img {
       transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
       transform: scale(1.6) rotate(20deg);
